@@ -7,22 +7,22 @@ struct ContentView: View {
 		VStack {
 			Text("What's the result of")
 				.font(.title)
-			Text("47 * 11")
+			Text("\(mainVM.operand1) + \(mainVM.operand2)")
 				.font(.largeTitle)
 				.fontWeight(.bold)
 			Text("?")
 				.font(.title)
 			Spacer()
-			AnswerButtonView(caption: String(mainVM.answer1), color: .gray) {
+			AnswerButtonView(caption: String(mainVM.option1), color: .gray) {
 				
 			}
-			AnswerButtonView(caption: String(mainVM.answer2), color: .gray) {
+			AnswerButtonView(caption: String(mainVM.option2), color: .gray) {
 				
 			}
-			AnswerButtonView(caption: String(mainVM.answer3), color: .gray) {
+			AnswerButtonView(caption: String(mainVM.option3), color: .gray) {
 				
 			}
-			AnswerButtonView(caption: String(mainVM.answer4), color: .gray) {
+			AnswerButtonView(caption: String(mainVM.option4), color: .gray) {
 				
 			}
 			Spacer()
