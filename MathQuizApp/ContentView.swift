@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ContentView: View {
+	@State var mainVM = MainViewModel()
+	
 	var body: some View {
 		VStack {
 			Text("What's the result of")
@@ -11,16 +13,16 @@ struct ContentView: View {
 			Text("?")
 				.font(.title)
 			Spacer()
-			AnswerButtonView(caption: "498", color: .gray) {
+			AnswerButtonView(caption: String(mainVM.answer1), color: .gray) {
 				
 			}
-			AnswerButtonView(caption: "517", color: .gray) {
+			AnswerButtonView(caption: String(mainVM.answer2), color: .gray) {
 				
 			}
-			AnswerButtonView(caption: "507", color: .gray) {
+			AnswerButtonView(caption: String(mainVM.answer3), color: .gray) {
 				
 			}
-			AnswerButtonView(caption: "528", color: .gray) {
+			AnswerButtonView(caption: String(mainVM.answer4), color: .gray) {
 				
 			}
 			Spacer()
