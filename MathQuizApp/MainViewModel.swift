@@ -11,6 +11,7 @@ class MainViewModel {
 	var options = [Int]()
 	var questionNumber = 0
 	var points = 0
+	var disabled = false
 	
 	init() {
 		for curr in Operators.allCases {

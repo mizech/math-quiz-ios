@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-	@State var mainVM = MainViewModel()
+	@Environment(MainViewModel.self) var mainVM
 	
 	var body: some View {
 		VStack {
@@ -13,29 +13,25 @@ struct ContentView: View {
 			Text("?")
 				.font(.title)
 			Spacer()
-			AnswerButtonView(caption: String(mainVM.options[0]), color: .gray) {
+			AnswerButtonView(color: .gray, caption: String(mainVM.options[0]), index: 0) {
 				if 0 == mainVM.answerIndex {
 					mainVM.points += 1
 				}
-				mainVM.newQuestion()
 			}
-			AnswerButtonView(caption: String(mainVM.options[1]), color: .gray) {
+			AnswerButtonView(color: .gray, caption: String(mainVM.options[1]), index: 1) {
 				if 1 == mainVM.answerIndex {
 					mainVM.points += 1
 				}
-				mainVM.newQuestion()
 			}
-			AnswerButtonView(caption: String(mainVM.options[2]), color: .gray) {
+			AnswerButtonView(color: .gray, caption: String(mainVM.options[2]), index: 2) {
 				if 2 == mainVM.answerIndex {
 					mainVM.points += 1
 				}
-				mainVM.newQuestion()
 			}
-			AnswerButtonView(caption: String(mainVM.options[3]), color: .gray) {
+			AnswerButtonView(color: .gray, caption: String(mainVM.options[3]), index: 3) {
 				if 3 == mainVM.answerIndex {
 					mainVM.points += 1
 				}
-				mainVM.newQuestion()
 			}
 			Spacer()
 			HStack {

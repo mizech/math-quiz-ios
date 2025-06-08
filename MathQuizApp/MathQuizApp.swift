@@ -1,17 +1,12 @@
-//
-//  MathQuizAppApp.swift
-//  MathQuizApp
-//
-//  Created by Michael on 06.06.25.
-//
-
 import SwiftUI
 
 @main
 struct MathQuizApp: App {
+	@State var mainVM = MainViewModel()
+	
     var body: some Scene {
         WindowGroup {
-            ContentView()
+			ContentView().environment(mainVM)
         }
     }
 }
