@@ -7,9 +7,10 @@ class MainViewModel {
 	var operand1 = 0
 	var operand2 = 0
 	var answer = 0
+	var answerIndex = 0
 	var options = [Int]()
 	var questionNumber = 0
-	var correctIndex = 0
+	var points = 0
 	
 	init() {
 		for curr in Operators.allCases {
@@ -20,8 +21,9 @@ class MainViewModel {
 	
 	func newQuestion() {
 		operand1 = Int.random(in: 0...100)
-		operand2 = Int.random(in: 0...100)
+		operand2 = Int.random(in: 1..<100)
 		ranOperator = operators.randomElement() ?? Operators.subtract
+		options.removeAll()
 		
 		switch ranOperator {
 			case .add:
@@ -42,10 +44,10 @@ class MainViewModel {
 	}
 	
 	func setUpQuestion(compOption: () -> Int) {
-		correctIndex = Int.random(in: 0..<4)
+		answerIndex = Int.random(in: 0..<4)
 		
 		for i in 0..<4 {
-			if i == correctIndex {
+			if i == answerIndex {
 				options.append(answer)
 			} else {
 				options.append(compOption())
