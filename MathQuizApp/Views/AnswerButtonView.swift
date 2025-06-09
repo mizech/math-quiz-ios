@@ -24,7 +24,7 @@ struct AnswerButtonView: View {
 				mainVM.disabled = false
 			}
 		} label: {
-			Text(String(format: "%.2f", caption))
+			Text(caption.format())
 				.frame(height: 50)
 				.frame(maxWidth: .infinity)
 				.font(.title2)

@@ -1,0 +1,100 @@
+import SwiftUI
+
+struct ContentView: View {
+	@Environment(MainViewModel.self) var mainVM
+	@Environment(\.dismiss) var dismiss
+	
+	@State var isAlertShown = false
+	
+	var body: some View {
+		VStack {
+			Text("What's the result of")
+				.font(.title)
+			Text(
+				"\(mainVM.operand1.format()) " +
+				"\(mainVM.ranOperator.rawValue) " +
+				"\(mainVM.operand2.format())"
+			)
+				.font(.largeTitle)
+				.fontWeight(.bold)
+			Text("?")
+				.font(.title)
+			Spacer()
+			AnswerButtonView(
+				color: .gray,
+				caption: mainVM.options[0],
+				index: 0
+			) {
+				if 0 == mainVM.answerIndex {
+					mainVM.points += 1
+				}
+			}
+			AnswerButtonView(
+				color: .gray,
+				caption: mainVM.options[1],
+				index: 1
+			) {
+				if 1 == mainVM.answerIndex {
+					mainVM.points += 1
+				}
+			}
+			AnswerButtonView(
+				color: .gray,
+				caption: mainVM.options[2],
+				index: 2
+			) {
+				if 2 == mainVM.answerIndex {
+					mainVM.points += 1
+				}
+			}
+			AnswerButtonView(
+				color: .gray,
+				caption: mainVM.options[3],
+				index: 3
+			) {
+				if 3 == mainVM.answerIndex {
+					mainVM.points += 1
+				}
+			}
+			Spacer()
+			HStack {
+				Text("\(mainVM.questionNumber) of 10")
+					.font(.title2)
+				Spacer()
+				Text("^[\(mainVM.points) point](inflect: true)")
+					.font(.title2)
+					.fontWeight(.bold)
+			}
+			Spacer()
+			Spacer()
+		}
+		.sheet(isPresented: $isAlertShown, content: {
+			VStack {
+				Text("Game over").font(.title)
+				Text("You have accomplished \(mainVM.points) points.")
+				Button {
+					mainVM.setInitValues()
+					isAlertShown = false
+				} label: {
+					Text("Restart")
+						.frame(height: 40)
+						.frame(maxWidth: .infinity)
+						.background(.blue)
+						.foregroundStyle(.white)
+						.clipShape(RoundedRectangle(cornerRadius: 12))
+				}
+			}.padding()
+				.interactiveDismissDisabled(true)
+		})
+		.padding()
+		.onChange(of: mainVM.isGameComplete) { _, newValue in
+			if newValue == true {
+				isAlertShown.toggle()
+			}
+		}
+	}
+}
+
+#Preview {
+	ContentView()
+}

@@ -12,12 +12,22 @@ class MainViewModel {
 	var questionNumber = 0
 	var points = 0
 	var disabled = false
+	var isGameComplete = false
+	
+	func setInitValues() {
+		answerIndex = 0
+		questionNumber = 0
+		points = 0
+		disabled = false
+		isGameComplete = false
+		newQuestion()
+	}
 	
 	init() {
 		for curr in Operators.allCases {
 			operators.append(curr)
 		}
-		newQuestion()
+		setInitValues()
 	}
 	
 	func newQuestion() {
@@ -41,7 +51,11 @@ class MainViewModel {
 				setUpQuestion { Double.random(in: 0...100) + Double.random(in: 0...100) }
 		}
 		
-		questionNumber += 1
+		if questionNumber < 10 {
+			questionNumber += 1
+		} else {
+			isGameComplete = true
+		}
 	}
 	
 	func setUpQuestion(compOption: () -> Double) {
