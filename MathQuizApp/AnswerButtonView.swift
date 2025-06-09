@@ -4,7 +4,7 @@ struct AnswerButtonView: View {
 	@Environment(MainViewModel.self) var mainVM
 	@State var color: Color
 	
-	var caption: String
+	var caption: Double
 	var index: Int
 	var action: () -> Void
 	
@@ -24,7 +24,7 @@ struct AnswerButtonView: View {
 				mainVM.disabled = false
 			}
 		} label: {
-			Text(caption)
+			Text(String(format: "%.2f", caption))
 				.frame(height: 50)
 				.frame(maxWidth: .infinity)
 				.font(.title2)
@@ -38,5 +38,5 @@ struct AnswerButtonView: View {
 }
 
 #Preview {
-	AnswerButtonView(color: .gray, caption: "393", index: 0) {}
+	AnswerButtonView(color: .gray, caption: 393, index: 0) {}
 }

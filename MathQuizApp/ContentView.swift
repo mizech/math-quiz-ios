@@ -7,28 +7,28 @@ struct ContentView: View {
 		VStack {
 			Text("What's the result of")
 				.font(.title)
-			Text("\(mainVM.operand1) \(mainVM.ranOperator.rawValue) \(mainVM.operand2)")
+			Text("\(String(format: "%.2f", mainVM.operand1)) \(mainVM.ranOperator.rawValue) \(String(format: "%.2f", mainVM.operand2))")
 				.font(.largeTitle)
 				.fontWeight(.bold)
 			Text("?")
 				.font(.title)
 			Spacer()
-			AnswerButtonView(color: .gray, caption: String(mainVM.options[0]), index: 0) {
+			AnswerButtonView(color: .gray, caption: mainVM.options[0], index: 0) {
 				if 0 == mainVM.answerIndex {
 					mainVM.points += 1
 				}
 			}
-			AnswerButtonView(color: .gray, caption: String(mainVM.options[1]), index: 1) {
+			AnswerButtonView(color: .gray, caption: mainVM.options[1], index: 1) {
 				if 1 == mainVM.answerIndex {
 					mainVM.points += 1
 				}
 			}
-			AnswerButtonView(color: .gray, caption: String(mainVM.options[2]), index: 2) {
+			AnswerButtonView(color: .gray, caption: mainVM.options[2], index: 2) {
 				if 2 == mainVM.answerIndex {
 					mainVM.points += 1
 				}
 			}
-			AnswerButtonView(color: .gray, caption: String(mainVM.options[3]), index: 3) {
+			AnswerButtonView(color: .gray, caption: mainVM.options[3], index: 3) {
 				if 3 == mainVM.answerIndex {
 					mainVM.points += 1
 				}
