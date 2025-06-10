@@ -4,7 +4,8 @@ struct ContentView: View {
 	@Environment(MainViewModel.self) var mainVM
 	@Environment(\.dismiss) var dismiss
 	
-	@State var isAlertShown = false
+	@State var isSheetShown = false
+	@State var isWarningAlertShown = false
 	
 	var body: some View {
 		VStack {
@@ -65,16 +66,36 @@ struct ContentView: View {
 					.font(.title2)
 					.fontWeight(.bold)
 			}
+			Button {
+				isWarningAlertShown.toggle()
+			} label: {
+				Text("Restart".uppercased())
+					.frame(height: 50)
+					.frame(maxWidth: .infinity)
+					.background(.orange)
+					.fontWeight(.bold)
+					.foregroundStyle(.white)
+					.clipShape(RoundedRectangle(cornerRadius: 12))
+			}
+
 			Spacer()
 			Spacer()
 		}
-		.sheet(isPresented: $isAlertShown, content: {
+		.alert("Reset Game?", isPresented: $isWarningAlertShown, actions: {
+			Button("Reset") {
+				mainVM.setInitValues()
+			}
+			Button("Cancel") {}
+		}, message: {
+			Text("Points will be lost.")
+		})
+		.sheet(isPresented: $isSheetShown, content: {
 			VStack {
 				Text("Game over").font(.title)
 				Text("You have accomplished \(mainVM.points) points.")
 				Button {
 					mainVM.setInitValues()
-					isAlertShown = false
+					isSheetShown = false
 				} label: {
 					Text("Restart")
 						.frame(height: 40)
@@ -89,7 +110,7 @@ struct ContentView: View {
 		.padding()
 		.onChange(of: mainVM.isGameComplete) { _, newValue in
 			if newValue == true {
-				isAlertShown.toggle()
+				isSheetShown.toggle()
 			}
 		}
 	}
