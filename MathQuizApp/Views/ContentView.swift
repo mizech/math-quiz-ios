@@ -22,7 +22,6 @@ struct ContentView: View {
 				.font(.title)
 			Spacer()
 			AnswerButtonView(
-				color: .gray,
 				caption: mainVM.options[0],
 				index: 0
 			) {
@@ -31,7 +30,6 @@ struct ContentView: View {
 				}
 			}
 			AnswerButtonView(
-				color: .gray,
 				caption: mainVM.options[1],
 				index: 1
 			) {
@@ -40,7 +38,6 @@ struct ContentView: View {
 				}
 			}
 			AnswerButtonView(
-				color: .gray,
 				caption: mainVM.options[2],
 				index: 2
 			) {
@@ -49,7 +46,6 @@ struct ContentView: View {
 				}
 			}
 			AnswerButtonView(
-				color: .gray,
 				caption: mainVM.options[3],
 				index: 3
 			) {
@@ -77,8 +73,21 @@ struct ContentView: View {
 					.foregroundStyle(.white)
 					.clipShape(RoundedRectangle(cornerRadius: 12))
 			}
-
 			Spacer()
+			HStack {
+				Spacer()
+				Button {
+					mainVM.newQuestion()
+					mainVM.disabled = false
+				} label: {
+					Text("Next Question".uppercased())
+						.padding()
+						.background(.blue)
+						.fontWeight(.bold)
+						.foregroundStyle(.white)
+						.clipShape(RoundedRectangle(cornerRadius: 12))
+				}
+			}.opacity(mainVM.disabled == true ? 1 : 0)
 			Spacer()
 		}
 		.alert("Reset Game?", isPresented: $isWarningAlertShown, actions: {

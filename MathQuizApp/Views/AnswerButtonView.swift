@@ -2,7 +2,7 @@ import SwiftUI
 
 struct AnswerButtonView: View {
 	@Environment(MainViewModel.self) var mainVM
-	@State var color: Color
+	@State var buttonColor = Color.gray
 	
 	var caption: Double
 	var index: Int
@@ -13,23 +13,19 @@ struct AnswerButtonView: View {
 			action()
 			mainVM.disabled = true
 			if index == mainVM.answerIndex {
-				self.color = .green
+				mainVM.buttonColors[index] = .green
 			} else {
-				self.color = .red
+				mainVM.buttonColors[index] = .red
 			}
 			
-			DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-				color = .gray
-				mainVM.newQuestion()
-				mainVM.disabled = false
-			}
+			mainVM.disabled = true
 		} label: {
 			Text(caption.format())
 				.frame(height: 50)
 				.frame(maxWidth: .infinity)
 				.font(.title2)
 				.fontWeight(.bold)
-				.background(color)
+				.background(mainVM.buttonColors[index])
 				.foregroundStyle(.white)
 				.clipShape(RoundedRectangle(cornerRadius: 12))
 		}.padding(.bottom, 10)
@@ -38,5 +34,5 @@ struct AnswerButtonView: View {
 }
 
 #Preview {
-	AnswerButtonView(color: .gray, caption: 393, index: 0) {}
+	AnswerButtonView(caption: 393, index: 0) {}
 }

@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUICore
 
 @Observable
 class MainViewModel {
@@ -13,6 +14,12 @@ class MainViewModel {
 	var points = 0
 	var disabled = false
 	var isGameComplete = false
+	var buttonColors = [
+		Color.gray,
+		Color.gray,
+		Color.gray,
+		Color.gray
+	]
 	
 	func setInitValues() {
 		answerIndex = 0
@@ -55,6 +62,10 @@ class MainViewModel {
 			questionNumber += 1
 		} else {
 			isGameComplete = true
+		}
+		
+		for i in 0..<buttonColors.count {
+			buttonColors[i] = .gray
 		}
 	}
 	
