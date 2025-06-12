@@ -12,12 +12,8 @@ struct AnswerButtonView: View {
 		Button {
 			action()
 			mainVM.disabled = true
-			if index == mainVM.answerIndex {
-				mainVM.buttonColors[index] = .green
-			} else {
-				mainVM.buttonColors[index] = .red
-			}
-			
+			mainVM.buttonColors[index] = .red
+			mainVM.buttonColors[mainVM.answerIndex] = .green
 			mainVM.disabled = true
 		} label: {
 			Text(caption.format())
