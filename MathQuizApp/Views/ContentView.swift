@@ -8,87 +8,86 @@ struct ContentView: View {
 	@State var isWarningAlertShown = false
 	
 	var body: some View {
-		VStack {
-			Text("What's the result of")
-				.font(.title)
-			Text(
-				"\(mainVM.operand1.format()) " +
-				"\(mainVM.ranOperator.rawValue) " +
-				"\(mainVM.operand2.format())"
-			)
-				.font(.largeTitle)
-				.fontWeight(.bold)
-			Text("?")
-				.font(.title)
-			Spacer()
-			AnswerButtonView(
-				caption: mainVM.options[0],
-				index: 0
-			) {
-				if 0 == mainVM.answerIndex {
-					mainVM.points += 1
-				}
-			}
-			AnswerButtonView(
-				caption: mainVM.options[1],
-				index: 1
-			) {
-				if 1 == mainVM.answerIndex {
-					mainVM.points += 1
-				}
-			}
-			AnswerButtonView(
-				caption: mainVM.options[2],
-				index: 2
-			) {
-				if 2 == mainVM.answerIndex {
-					mainVM.points += 1
-				}
-			}
-			AnswerButtonView(
-				caption: mainVM.options[3],
-				index: 3
-			) {
-				if 3 == mainVM.answerIndex {
-					mainVM.points += 1
-				}
-			}
-			Spacer()
-			HStack {
-				Text("\(mainVM.questionNumber) of 10")
-					.font(.title2)
-				Spacer()
-				Text("^[\(mainVM.points) point](inflect: true)")
-					.font(.title2)
+		NavigationStack {
+			VStack {
+				Text("What's the result of")
+					.font(.title)
+				Text(
+					"\(mainVM.operand1.format()) " +
+					"\(mainVM.ranOperator.rawValue) " +
+					"\(mainVM.operand2.format())"
+				)
+					.font(.largeTitle)
 					.fontWeight(.bold)
-			}
-			Button {
-				isWarningAlertShown.toggle()
-			} label: {
-				Text("Restart".uppercased())
-					.frame(height: 50)
-					.frame(maxWidth: .infinity)
-					.background(.orange)
-					.fontWeight(.bold)
-					.foregroundStyle(.white)
-					.clipShape(RoundedRectangle(cornerRadius: 12))
-			}
-			Spacer()
-			HStack {
+				Text("?")
+					.font(.title)
 				Spacer()
-				Button {
-					mainVM.newQuestion()
-					mainVM.disabled = false
-				} label: {
-					Text("Next Question".uppercased())
-						.padding()
-						.background(.blue)
+				AnswerButtonView(
+					caption: mainVM.options[0],
+					index: 0
+				) {
+					if 0 == mainVM.answerIndex {
+						mainVM.points += 1
+					}
+				}
+				AnswerButtonView(
+					caption: mainVM.options[1],
+					index: 1
+				) {
+					if 1 == mainVM.answerIndex {
+						mainVM.points += 1
+					}
+				}
+				AnswerButtonView(
+					caption: mainVM.options[2],
+					index: 2
+				) {
+					if 2 == mainVM.answerIndex {
+						mainVM.points += 1
+					}
+				}
+				AnswerButtonView(
+					caption: mainVM.options[3],
+					index: 3
+				) {
+					if 3 == mainVM.answerIndex {
+						mainVM.points += 1
+					}
+				}
+				Spacer()
+				HStack {
+					Text("\(mainVM.questionNumber) of 10")
+						.font(.title2)
+					Spacer()
+					Text("^[\(mainVM.points) point](inflect: true)")
+						.font(.title2)
 						.fontWeight(.bold)
-						.foregroundStyle(.white)
-						.clipShape(RoundedRectangle(cornerRadius: 12))
 				}
-			}.opacity(mainVM.disabled == true ? 1 : 0)
-			Spacer()
+				Spacer()
+				HStack {
+					Spacer()
+					Button {
+						mainVM.newQuestion()
+						mainVM.disabled = false
+					} label: {
+						Text("Next Question".uppercased())
+							.padding()
+							.background(.blue)
+							.fontWeight(.bold)
+							.foregroundStyle(.white)
+							.clipShape(RoundedRectangle(cornerRadius: 12))
+					}
+					Spacer()
+				}.opacity(mainVM.disabled == true ? 1 : 0)
+				Spacer()
+			}
+			.toolbar(content: {
+				ToolbarItem(placement: .topBarLeading) {
+					Button("Restart", systemImage: "exclamationmark.triangle") {
+						isWarningAlertShown.toggle()
+					}
+				}
+			})
 		}
 		.alert("Reset Game?", isPresented: $isWarningAlertShown, actions: {
 			Button("Reset") {
