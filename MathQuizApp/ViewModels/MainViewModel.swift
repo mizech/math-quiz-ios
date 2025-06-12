@@ -46,16 +46,40 @@ class MainViewModel {
 		switch ranOperator {
 			case .add:
 				answer = operand1 + operand2
-				setUpQuestion { Double.random(in: 0...100) + Double.random(in: 0...100) }
+				setUpQuestion {
+					Double.random(
+						in: operand1 - 5.0...operand1 + 5.0
+					) + Double.random(
+						in: operand1 - 5.0...operand1 + 5.0
+					)
+				}
 			case .subtract:
 				answer = operand1 - operand2
-				setUpQuestion { Double.random(in: 0...100) + Double.random(in: 0...100) }
+				setUpQuestion {
+					Double.random(
+						in: operand1 - 5.0...operand1 + 5.0
+					) + Double.random(
+						in: operand1 - 5.0...operand1 + 5.0
+					)
+				}
 			case .multiply:
 				answer = operand1 * operand2
-				setUpQuestion { Double.random(in: 0...100) + Double.random(in: 0...100) }
+				setUpQuestion {
+					Double.random(
+						in: operand1 - 1.0...operand1 + 1.0
+					) + Double.random(
+						in: operand1 - 1.0...operand1 + 1.0
+					)
+				}
 			case .divide:
 				answer = operand1 / operand2
-				setUpQuestion { Double.random(in: 0...100) + Double.random(in: 0...100) }
+				setUpQuestion {
+					Double.random(
+						in: operand1 - 1.0...operand1 + 1.0
+					) + Double.random(
+						in: operand1 - 1.0...operand1 + 1.0
+					)
+				}
 		}
 		
 		if questionNumber < 10 {
