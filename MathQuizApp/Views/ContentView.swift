@@ -17,8 +17,8 @@ struct ContentView: View {
 					"\(mainVM.ranOperator.rawValue) " +
 					"\(mainVM.operand2.format())"
 				)
-					.font(.largeTitle)
-					.fontWeight(.bold)
+				.font(.largeTitle)
+				.fontWeight(.bold)
 				Text("?")
 					.font(.title)
 				Spacer()
@@ -27,7 +27,7 @@ struct ContentView: View {
 					index: 0
 				) {
 					if 0 == mainVM.answerIndex {
-						mainVM.points += 1
+						checkAnswer()
 					}
 				}
 				AnswerButtonView(
@@ -35,7 +35,7 @@ struct ContentView: View {
 					index: 1
 				) {
 					if 1 == mainVM.answerIndex {
-						mainVM.points += 1
+						checkAnswer()
 					}
 				}
 				AnswerButtonView(
@@ -43,7 +43,7 @@ struct ContentView: View {
 					index: 2
 				) {
 					if 2 == mainVM.answerIndex {
-						mainVM.points += 1
+						checkAnswer()
 					}
 				}
 				AnswerButtonView(
@@ -51,7 +51,7 @@ struct ContentView: View {
 					index: 3
 				) {
 					if 3 == mainVM.answerIndex {
-						mainVM.points += 1
+						checkAnswer()
 					}
 				}
 				Spacer()
@@ -63,6 +63,7 @@ struct ContentView: View {
 						.font(.title2)
 						.fontWeight(.bold)
 				}
+				ProgressView(value: (1.0 / mainVM.timeLimit) * mainVM.passedSeconds)
 				Spacer()
 				HStack {
 					Spacer()
@@ -120,6 +121,16 @@ struct ContentView: View {
 			if newValue == true {
 				isSheetShown.toggle()
 			}
+		}
+	}
+	
+	func checkAnswer() {
+		if mainVM.passedSeconds < 4 {
+			mainVM.points += 3
+		} else if mainVM.passedSeconds < mainVM.timeLimit {
+			mainVM.points += 2
+		} else {
+			mainVM.points += 1
 		}
 	}
 }

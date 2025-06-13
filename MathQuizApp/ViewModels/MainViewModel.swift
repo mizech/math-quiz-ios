@@ -3,6 +3,7 @@ import SwiftUICore
 
 @Observable
 class MainViewModel {
+	let timeLimit = 6.0
 	var operators = [Operators]()
 	var ranOperator = Operators.add
 	var operand1: Double = 0
@@ -14,6 +15,7 @@ class MainViewModel {
 	var points = 0
 	var disabled = false
 	var isGameComplete = false
+	var passedSeconds: Double = 0
 	var buttonColors = [
 		Color.gray,
 		Color.gray,
@@ -91,6 +93,21 @@ class MainViewModel {
 		for i in 0..<buttonColors.count {
 			buttonColors[i] = .gray
 		}
+		
+		Task {
+			while disabled == false {
+				if passedSeconds < timeLimit {
+					do {
+						try await Task.sleep(for: .seconds(1))
+					} catch {
+						print(error)
+					}
+					
+					passedSeconds += 1
+				}
+			}
+		}
+		passedSeconds = 0
 	}
 	
 	func setUpQuestion(compOption: () -> Double) {
