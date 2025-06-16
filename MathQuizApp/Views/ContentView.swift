@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ContentView: View {
 	@Environment(MainViewModel.self) var mainVM
-	@Environment(\.dismiss) var dismiss
 	
 	@State var isSheetShown = false
 	@State var isWarningAlertShown = false
@@ -26,33 +25,25 @@ struct ContentView: View {
 					caption: mainVM.options[0],
 					index: 0
 				) {
-					if 0 == mainVM.answerIndex {
-						checkAnswer()
-					}
+					checkAnswer(index: 0)
 				}
 				AnswerButtonView(
 					caption: mainVM.options[1],
 					index: 1
 				) {
-					if 1 == mainVM.answerIndex {
-						checkAnswer()
-					}
+					checkAnswer(index: 1)
 				}
 				AnswerButtonView(
 					caption: mainVM.options[2],
 					index: 2
 				) {
-					if 2 == mainVM.answerIndex {
-						checkAnswer()
-					}
+					checkAnswer(index: 2)
 				}
 				AnswerButtonView(
 					caption: mainVM.options[3],
 					index: 3
 				) {
-					if 3 == mainVM.answerIndex {
-						checkAnswer()
-					}
+					checkAnswer(index: 3)
 				}
 				Spacer()
 				HStack {
@@ -65,6 +56,19 @@ struct ContentView: View {
 				}
 				ProgressView(value: (1.0 / mainVM.timeLimit) * mainVM.passedSeconds)
 				Spacer()
+				HStack {
+					Button {
+						
+					} label: {
+						Text("Start Game".uppercased())
+							.padding()
+							.background(.green)
+							.fontWeight(.bold)
+							.foregroundStyle(.white)
+							.clipShape(RoundedRectangle(cornerRadius: 12))
+					}
+
+				}.opacity(mainVM.isGameComplete == true ? 1 : 0)
 				HStack {
 					Spacer()
 					Button {
@@ -124,13 +128,17 @@ struct ContentView: View {
 		}
 	}
 	
-	func checkAnswer() {
-		if mainVM.passedSeconds < 4 {
-			mainVM.points += 3
-		} else if mainVM.passedSeconds < mainVM.timeLimit {
-			mainVM.points += 2
+	func checkAnswer(index: Int) {
+		if index == mainVM.answerIndex {
+			if mainVM.passedSeconds < 4 {
+				mainVM.points += 3
+			} else if mainVM.passedSeconds < mainVM.timeLimit {
+				mainVM.points += 2
+			} else {
+				mainVM.points += 1
+			}
 		} else {
-			mainVM.points += 1
+			mainVM.points -= 1
 		}
 	}
 }
