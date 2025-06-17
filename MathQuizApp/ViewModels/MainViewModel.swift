@@ -15,6 +15,7 @@ class MainViewModel {
 	var points = 0
 	var disabled = false
 	var isGameComplete = false
+	var hasGameStarted = false
 	var passedSeconds: Double = 0
 	var buttonColors = [
 		Color.gray,
@@ -23,12 +24,13 @@ class MainViewModel {
 		Color.gray
 	]
 	
-	func setInitValues() {
-		answerIndex = 0
-		questionNumber = 0
-		points = 0
-		disabled = false
-		isGameComplete = false
+	func setInitValues(hasGameStarted: Bool = true) {
+		self.answerIndex = 0
+		self.questionNumber = 0
+		self.points = 0
+		self.disabled = false
+		self.isGameComplete = false
+		self.hasGameStarted = hasGameStarted
 		newQuestion()
 	}
 	
@@ -36,7 +38,6 @@ class MainViewModel {
 		for curr in Operators.allCases {
 			operators.append(curr)
 		}
-		setInitValues()
 	}
 	
 	func newQuestion() {

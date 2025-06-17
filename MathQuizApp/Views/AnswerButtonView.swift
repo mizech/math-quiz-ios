@@ -8,7 +8,7 @@ struct AnswerButtonView: View {
 	var index: Int
 	var action: () -> Void
 	
-    var body: some View {
+	var body: some View {
 		Button {
 			action()
 			mainVM.disabled = true
@@ -26,7 +26,7 @@ struct AnswerButtonView: View {
 				.clipShape(RoundedRectangle(cornerRadius: 12))
 		}.padding(.bottom, 10)
 			.disabled(mainVM.disabled == true)
-    }
+	}
 }
 
 #Preview {
