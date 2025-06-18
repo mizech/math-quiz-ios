@@ -20,7 +20,6 @@ struct ActiveGameView: View {
 			Text("?")
 				.font(.title)
 			Spacer()
-			
 			ForEach(0...3, id: \.self) { i in
 				AnswerButtonView(
 					caption: mainVM.options[i],
@@ -78,22 +77,7 @@ struct ActiveGameView: View {
 			Text("Points will be lost.")
 		})
 		.sheet(isPresented: $isSheetShown, content: {
-			VStack {
-				Text("Game over").font(.title)
-				Text("You have accomplished \(mainVM.points) points.")
-				Button {
-					mainVM.setInitValues(hasGameStarted: false)
-					isSheetShown = false
-				} label: {
-					Text("Restart")
-						.frame(height: 40)
-						.frame(maxWidth: .infinity)
-						.background(.blue)
-						.foregroundStyle(.white)
-						.clipShape(RoundedRectangle(cornerRadius: 12))
-				}
-			}.padding()
-				.interactiveDismissDisabled(true)
+			ResultView(mainVM: mainVM, isSheetShown: $isSheetShown)
 		})
 	}
 	
