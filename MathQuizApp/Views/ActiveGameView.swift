@@ -20,29 +20,14 @@ struct ActiveGameView: View {
 			Text("?")
 				.font(.title)
 			Spacer()
-			AnswerButtonView(
-				caption: mainVM.options[0],
-				index: 0
-			) {
-				checkAnswer(index: 0)
-			}
-			AnswerButtonView(
-				caption: mainVM.options[1],
-				index: 1
-			) {
-				checkAnswer(index: 1)
-			}
-			AnswerButtonView(
-				caption: mainVM.options[2],
-				index: 2
-			) {
-				checkAnswer(index: 2)
-			}
-			AnswerButtonView(
-				caption: mainVM.options[3],
-				index: 3
-			) {
-				checkAnswer(index: 3)
+			
+			ForEach(0...3, id: \.self) { i in
+				AnswerButtonView(
+					caption: mainVM.options[i],
+					index: i
+				) {
+					checkAnswer(index: i)
+				}
 			}
 			Spacer()
 			HStack {
