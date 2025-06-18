@@ -1,21 +1,23 @@
 import SwiftUI
 
 struct InitGameView: View {
+	@State var selectedAmount = 10
+	
 	var mainVM: MainViewModel
-	@State var amountQuestions = 15
+	let feasibleAmounts = [5, 10, 15, 20]
 	
     var body: some View {
 		Form {
 			Section("Amount Questions") {
-				Picker("Amount Questions", selection: $amountQuestions) {
-					ForEach(1...3, id: \.self) { i in
-						Text("\(i * 10)")
+				Picker("Amount Questions", selection: $selectedAmount) {
+					ForEach(feasibleAmounts, id: \.self) { i in
+						Text("\(i)")
 					}
 				}.pickerStyle(.wheel)
 			}
 			Section {
 				Button {
-					mainVM.setInitValues()
+					mainVM.setInitValues(hasGameStarted: true)
 				} label: {
 					Text("Start Game".uppercased())
 						.padding()
@@ -40,6 +42,9 @@ struct InitGameView: View {
 				}
 			}
 		}.opacity(mainVM.isGameComplete == false ? 1 : 0)
+			.onChange(of: selectedAmount) {
+				mainVM.amountQuestions = selectedAmount
+			}
     }
 }
 

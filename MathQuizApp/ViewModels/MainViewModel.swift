@@ -14,6 +14,7 @@ class MainViewModel {
 	var questionNumber = 0
 	var points = 0
 	var disabled = false
+	var amountQuestions = 10
 	var isGameComplete = false
 	var hasGameStarted = false
 	var passedSeconds: Double = 0
@@ -24,13 +25,14 @@ class MainViewModel {
 		Color.gray
 	]
 	
-	func setInitValues(hasGameStarted: Bool = true) {
+	func setInitValues(hasGameStarted: Bool) {
 		self.answerIndex = 0
 		self.questionNumber = 0
 		self.points = 0
 		self.disabled = false
 		self.isGameComplete = false
 		self.hasGameStarted = hasGameStarted
+		self.passedSeconds = 0
 		newQuestion()
 	}
 	
@@ -85,7 +87,7 @@ class MainViewModel {
 				}
 		}
 		
-		if questionNumber < 10 {
+		if questionNumber < amountQuestions {
 			questionNumber += 1
 		} else {
 			isGameComplete = true

@@ -46,7 +46,7 @@ struct ActiveGameView: View {
 			}
 			Spacer()
 			HStack {
-				Text("\(mainVM.questionNumber) of 10")
+				Text("\(mainVM.questionNumber) of \(mainVM.amountQuestions)")
 					.font(.title2)
 				Spacer()
 				Text("^[\(mainVM.points) point](inflect: true)")
@@ -97,7 +97,7 @@ struct ActiveGameView: View {
 				Text("Game over").font(.title)
 				Text("You have accomplished \(mainVM.points) points.")
 				Button {
-					mainVM.setInitValues()
+					mainVM.setInitValues(hasGameStarted: false)
 					isSheetShown = false
 				} label: {
 					Text("Restart")
@@ -122,7 +122,9 @@ struct ActiveGameView: View {
 				mainVM.points += 1
 			}
 		} else {
-			mainVM.points -= 1
+			if mainVM.points > 0 {
+				mainVM.points -= 1
+			}
 		}
 	}
 }
