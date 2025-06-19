@@ -2,11 +2,12 @@ import SwiftUI
 
 struct InitGameView: View {
 	@State var selectedAmount = 10
+	@State var isInfoSheetShown = false
 	
 	var mainVM: MainViewModel
 	let feasibleAmounts = [5, 10, 15, 20]
 	
-    var body: some View {
+	var body: some View {
 		Form {
 			Section("Amount Questions") {
 				Picker("Amount Questions", selection: $selectedAmount) {
@@ -33,7 +34,7 @@ struct InitGameView: View {
 				HStack {
 					Spacer()
 					Button {
-						
+						isInfoSheetShown.toggle()
 					} label: {
 						Image(systemName: "info.circle.fill")
 							.font(.largeTitle)
@@ -45,9 +46,22 @@ struct InitGameView: View {
 			.onChange(of: selectedAmount) {
 				mainVM.amountQuestions = selectedAmount
 			}
-    }
+			.sheet(isPresented: $isInfoSheetShown) {
+				VStack(spacing: 10) {
+					Text("How to get or lose Points")
+						.font(.title)
+						.bold()
+					Text("Anwer correct within:")
+						.font(.title2)
+					Text("- 5 seconds -> 3 points")
+					Text("- 3 seconds -> 2 points")
+					Text("- Afterwards -> 1 points")
+					Text("Incorrect -> minus 1 point")
+				}
+			}
+	}
 }
 
 #Preview {
-    InitGameView(mainVM: MainViewModel())
+	InitGameView(mainVM: MainViewModel())
 }

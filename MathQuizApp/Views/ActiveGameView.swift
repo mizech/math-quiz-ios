@@ -43,7 +43,9 @@ struct ActiveGameView: View {
 				Spacer()
 				Button {
 					mainVM.newQuestion()
-					mainVM.disabled = false
+					withAnimation {
+						mainVM.disabled = false
+					}
 				} label: {
 					Text("Next Question".uppercased())
 						.padding()
@@ -83,7 +85,7 @@ struct ActiveGameView: View {
 	
 	func checkAnswer(index: Int) {
 		if index == mainVM.answerIndex {
-			if mainVM.passedSeconds < 4 {
+			if mainVM.passedSeconds < 5 {
 				mainVM.points += 3
 			} else if mainVM.passedSeconds < mainVM.timeLimit {
 				mainVM.points += 2

@@ -3,7 +3,7 @@ import SwiftUICore
 
 @Observable
 class MainViewModel {
-	let timeLimit = 6.0
+	let timeLimit = 8.0
 	var operators = [Operators]()
 	var ranOperator = Operators.add
 	var operand1: Double = 0
