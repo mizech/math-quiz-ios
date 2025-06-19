@@ -47,16 +47,27 @@ struct InitGameView: View {
 				mainVM.amountQuestions = selectedAmount
 			}
 			.sheet(isPresented: $isInfoSheetShown) {
-				VStack(spacing: 10) {
-					Text("How to get or lose Points")
-						.font(.title)
-						.bold()
-					Text("Anwer correct within:")
-						.font(.title2)
-					Text("- 5 seconds -> 3 points")
-					Text("- 3 seconds -> 2 points")
-					Text("- Afterwards -> 1 points")
-					Text("Incorrect -> minus 1 point")
+				NavigationStack {
+					VStack(spacing: 10) {
+						Text("How to get or lose Points")
+							.font(.title)
+							.bold()
+						Text("Anwer correct within:")
+							.font(.title2)
+						Text("- 5 seconds -> 3 points")
+						Text("- 3 seconds -> 2 points")
+						Text("- Afterwards -> 1 points")
+						Text("Incorrect -> minus 1 point")
+						Spacer()
+					}.toolbar {
+						ToolbarItem(placement: .topBarTrailing) {
+							Button {
+								isInfoSheetShown.toggle()
+							} label: {
+								Image(systemName: "multiply.circle.fill")
+							}
+						}
+					}
 				}
 			}
 	}
