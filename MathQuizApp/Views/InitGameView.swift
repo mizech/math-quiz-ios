@@ -52,14 +52,28 @@ struct InitGameView: View {
 						Text("How to get or lose Points")
 							.font(.title)
 							.bold()
-						Text("Anwer correct within:")
+						Text("Answered correct within:")
 							.font(.title2)
-						Text("- 5 seconds -> 3 points")
-						Text("- 3 seconds -> 2 points")
-						Text("- Afterwards -> 1 points")
-						Text("Incorrect -> minus 1 point")
+						Text("5 seconds\t\t3 points")
+						Text("3 seconds\t\t2 points")
+						Text("Afterwards\t\t1 points")
+						Text("Wrong answer\t\tminus 1 point")
+							.padding(.bottom, 25)
+						Button {
+							isInfoSheetShown.toggle()
+						} label: {
+							Text("Got it!")
+								.frame(height: 50)
+								.frame(maxWidth: .infinity)
+								.background(.blue)
+								.foregroundStyle(.white)
+								.clipShape(RoundedRectangle(cornerRadius: 12))
+						}
+
 						Spacer()
-					}.toolbar {
+					}
+					.padding()
+					.toolbar {
 						ToolbarItem(placement: .topBarTrailing) {
 							Button {
 								isInfoSheetShown.toggle()

@@ -58,9 +58,13 @@ struct ActiveGameView: View {
 			}.opacity(mainVM.disabled == true ? 1 : 0)
 			Spacer()
 		}
-		.toolbar(content: {
-			ToolbarItem(placement: .topBarLeading) {
-				Button("Restart", systemImage: "exclamationmark.triangle") {
+		.toolbar(
+			content: {
+				ToolbarItem(placement: .topBarLeading) {
+					Button(
+						"Restart",
+						systemImage: "exclamationmark.triangle"
+					) {
 					isWarningAlertShown.toggle()
 				}
 			}
