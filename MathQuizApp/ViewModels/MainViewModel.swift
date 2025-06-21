@@ -31,6 +31,7 @@ class MainViewModel {
 		self.points = 0
 		self.disabled = false
 		self.isGameComplete = false
+		self.amountQuestions = 10
 		self.hasGameStarted = hasGameStarted
 		self.passedSeconds = 0
 		newQuestion()
