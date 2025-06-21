@@ -48,17 +48,35 @@ struct InitGameView: View {
 			}
 			.sheet(isPresented: $isInfoSheetShown) {
 				NavigationStack {
-					VStack(spacing: 10) {
+					VStack(alignment: .leading, spacing: 10) {
 						Text("How to get or lose Points")
 							.font(.title)
 							.bold()
-						Text("Answered correct within:")
+						Text("Correct answer within:")
 							.font(.title2)
-						Text("5 seconds\t\t3 points")
-						Text("3 seconds\t\t2 points")
-						Text("Afterwards\t\t1 points")
-						Text("Wrong answer\t\tminus 1 point")
-							.padding(.bottom, 25)
+						HStack {
+							Text("5 seconds")
+							Spacer()
+							Text("3 points")
+						}
+						HStack {
+							Text("8 seconds")
+							Spacer()
+							Text("2 points")
+						}
+						HStack {
+							Text("Afterwards")
+							Spacer()
+							Text("1 points")
+						}
+						HStack {
+							Text("Wrong answer")
+							Spacer()
+							Text("Minus 1 point")
+						}
+						.bold()
+						.foregroundStyle(.red)
+						.padding(.bottom, 25)
 						Button {
 							isInfoSheetShown.toggle()
 						} label: {
@@ -68,8 +86,9 @@ struct InitGameView: View {
 								.background(.blue)
 								.foregroundStyle(.white)
 								.clipShape(RoundedRectangle(cornerRadius: 12))
+								.bold()
 						}
-
+						
 						Spacer()
 					}
 					.padding()
