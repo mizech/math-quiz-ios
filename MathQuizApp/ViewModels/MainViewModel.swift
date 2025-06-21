@@ -4,20 +4,27 @@ import SwiftUICore
 @Observable
 class MainViewModel {
 	let timeLimit = 8.0
-	var operators = [Operators]()
-	var ranOperator = Operators.add
-	var operand1: Double = 0
-	var operand2: Double = 0
-	var answer: Double = 0
+	let operators = [
+		Operators.add,
+		Operators.subtract,
+		Operators.multiply,
+		Operators.divide
+	]
+	
 	var answerIndex = 0
-	var options = [Double]()
 	var questionNumber = 0
 	var points = 0
 	var disabled = false
-	var amountQuestions = 10
 	var isGameComplete = false
+	var amountQuestions = 10
 	var hasGameStarted = false
 	var passedSeconds: Double = 0
+	
+	var operand1: Double = 0
+	var operand2: Double = 0
+	var ranOperator = Operators.add
+	var options = [Double]()
+	var answer: Double = 0
 	var buttonColors = [
 		Color.gray,
 		Color.gray,
@@ -35,12 +42,6 @@ class MainViewModel {
 		self.hasGameStarted = hasGameStarted
 		self.passedSeconds = 0
 		newQuestion()
-	}
-	
-	init() {
-		for curr in Operators.allCases {
-			operators.append(curr)
-		}
 	}
 	
 	func newQuestion() {
