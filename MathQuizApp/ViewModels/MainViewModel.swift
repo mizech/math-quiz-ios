@@ -39,7 +39,6 @@ class MainViewModel {
 		self.disabled = false
 		self.isGameComplete = false
 		self.hasGameStarted = hasGameStarted
-		self.passedSeconds = 0
 		newQuestion()
 	}
 	
@@ -48,6 +47,8 @@ class MainViewModel {
 		operand2 = Double.random(in: 1..<100)
 		ranOperator = operators.randomElement() ?? Operators.subtract
 		options.removeAll()
+		passedSeconds = 0
+		disabled = false
 		
 		switch ranOperator {
 			case .add:
@@ -111,7 +112,6 @@ class MainViewModel {
 				}
 			}
 		}
-		passedSeconds = 0
 	}
 	
 	func setUpQuestion(compOption: () -> Double) {
