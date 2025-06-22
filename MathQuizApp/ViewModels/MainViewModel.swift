@@ -32,13 +32,12 @@ class MainViewModel {
 		Color.gray
 	]
 	
-	func setInitValues(hasGameStarted: Bool) {
+	func newGame(hasGameStarted: Bool) {
 		self.answerIndex = 0
 		self.questionNumber = 0
 		self.points = 0
 		self.disabled = false
 		self.isGameComplete = false
-		self.amountQuestions = 10
 		self.hasGameStarted = hasGameStarted
 		self.passedSeconds = 0
 		newQuestion()

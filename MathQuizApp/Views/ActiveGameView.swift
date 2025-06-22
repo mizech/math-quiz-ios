@@ -76,7 +76,7 @@ struct ActiveGameView: View {
 			}
 		}.alert("Reset Game?", isPresented: $isWarningAlertShown, actions: {
 			Button("Reset") {
-				mainVM.setInitValues(hasGameStarted: false)
+				mainVM.newGame(hasGameStarted: false)
 			}
 			Button("Cancel") {}
 		}, message: {

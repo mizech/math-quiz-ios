@@ -14,7 +14,7 @@ struct ResultView: View {
 					.font(.title2)
 				Spacer()
 				Button {
-					mainVM.setInitValues(hasGameStarted: false)
+					mainVM.newGame(hasGameStarted: false)
 					isSheetShown = false
 				} label: {
 					Text("Restart")

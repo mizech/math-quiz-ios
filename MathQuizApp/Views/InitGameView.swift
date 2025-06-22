@@ -18,7 +18,7 @@ struct InitGameView: View {
 			}
 			Section {
 				Button {
-					mainVM.setInitValues(hasGameStarted: true)
+					mainVM.newGame(hasGameStarted: true)
 				} label: {
 					Text("Start Game".uppercased())
 						.padding()
