@@ -19,6 +19,7 @@ class MainViewModel {
 	var amountQuestions = 10
 	var hasGameStarted = false
 	var passedSeconds: Double = 0
+	var serieCorrectAnswers = 0
 	
 	var operand1: Double = 0
 	var operand2: Double = 0

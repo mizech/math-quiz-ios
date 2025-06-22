@@ -73,14 +73,23 @@ struct InitGameView: View {
 							Text("Wrong answer")
 							Spacer()
 							Text("Minus 1 point")
+						}.bold()
+							.foregroundStyle(.red)
+						HStack {
+							Text("Serie of 3 correct answers")
+							Spacer()
+							Text("5 points")
 						}
-						.bold()
-						.foregroundStyle(.red)
+						HStack {
+							Text("Serie of 5 correct answers")
+							Spacer()
+							Text("5 points")
+						}
 						.padding(.bottom, 25)
 						Button {
 							isInfoSheetShown.toggle()
 						} label: {
-							Text("Got it!")
+							Text("Got it! Let's go.")
 								.frame(height: 50)
 								.frame(maxWidth: .infinity)
 								.background(.blue)

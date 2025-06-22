@@ -30,40 +30,10 @@
             filePath = "MathQuizApp/ViewModels/MainViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "newQuestion()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F64BCC1D-1BDE-4C59-86FB-54C5AD836C3F - 5af6c6e170736af6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #5 () async -&gt; () in MathQuizApp.MainViewModel.newQuestion() -&gt; ()"
-                  moduleName = "MathQuizApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/michael/Documents/Dokumente%20-%20MacBook%20Air%20von%20Michael/iOS-Prog/MathQuizApp/MathQuizApp/ViewModels/MainViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "111"
-                  endingLineNumber = "111">
-               </Location>
-               <Location
-                  uuid = "F64BCC1D-1BDE-4C59-86FB-54C5AD836C3F - 576d94802f64c8f5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #5 () async -&gt; () in MathQuizApp.MainViewModel.newQuestion() -&gt; ()"
-                  moduleName = "MathQuizApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/michael/Documents/Dokumente%20-%20MacBook%20Air%20von%20Michael/iOS-Prog/MathQuizApp/MathQuizApp/ViewModels/MainViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "111"
-                  endingLineNumber = "111">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -76,54 +46,10 @@
             filePath = "MathQuizApp/ViewModels/MainViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "newQuestion()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D1CFFE08-7472-44E6-86D4-1B95033C0B47 - 71ac2da3be22a988"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #5 () async -&gt; () in MathQuizApp.MainViewModel.newQuestion() -&gt; ()"
-                  moduleName = "MathQuizApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/michael/Documents/Dokumente%20-%20MacBook%20Air%20von%20Michael/iOS-Prog/MathQuizApp/MathQuizApp/ViewModels/MainViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103">
-               </Location>
-               <Location
-                  uuid = "D1CFFE08-7472-44E6-86D4-1B95033C0B47 - 5af6c6e170736d8e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #5 () async -&gt; () in MathQuizApp.MainViewModel.newQuestion() -&gt; ()"
-                  moduleName = "MathQuizApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/michael/Documents/Dokumente%20-%20MacBook%20Air%20von%20Michael/iOS-Prog/MathQuizApp/MathQuizApp/ViewModels/MainViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103">
-               </Location>
-               <Location
-                  uuid = "D1CFFE08-7472-44E6-86D4-1B95033C0B47 - 576d94802f64cf8d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #5 () async -&gt; () in MathQuizApp.MainViewModel.newQuestion() -&gt; ()"
-                  moduleName = "MathQuizApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/michael/Documents/Dokumente%20-%20MacBook%20Air%20von%20Michael/iOS-Prog/MathQuizApp/MathQuizApp/ViewModels/MainViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

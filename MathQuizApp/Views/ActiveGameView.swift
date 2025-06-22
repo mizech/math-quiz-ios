@@ -89,6 +89,15 @@ struct ActiveGameView: View {
 	
 	func checkAnswer(index: Int) {
 		if index == mainVM.answerIndex {
+			mainVM.serieCorrectAnswers += 1
+			
+			if mainVM.serieCorrectAnswers == 3 {
+				mainVM.points += 5
+			} else if mainVM.serieCorrectAnswers == 5 {
+				mainVM.points += 10
+				mainVM.serieCorrectAnswers = 0
+			}
+			
 			if mainVM.passedSeconds < 5 {
 				mainVM.points += 3
 			} else if mainVM.passedSeconds < mainVM.timeLimit {
@@ -97,6 +106,7 @@ struct ActiveGameView: View {
 				mainVM.points += 1
 			}
 		} else {
+			mainVM.serieCorrectAnswers = 0
 			if mainVM.points > 0 {
 				mainVM.points -= 1
 			}
