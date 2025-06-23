@@ -37,7 +37,7 @@ struct ActiveGameView: View {
 					.font(.title2)
 					.fontWeight(.bold)
 			}.overlay {
-				Text("+5 points")
+				Text("^[\(mainVM.currSum) point](inflect: true)")
 					.foregroundStyle(.gray)
 					.font(.headline)
 					.opacity(mainVM.disabled == true ? 1 : 0)
@@ -81,13 +81,13 @@ struct ActiveGameView: View {
 			if newValue == true {
 				isSheetShown.toggle()
 			}
-		}.alert("Reset Game?", isPresented: $isWarningAlertShown, actions: {
+		}.alert("Are you sure?", isPresented: $isWarningAlertShown, actions: {
 			Button("Reset") {
-				mainVM.newGame(hasGameStarted: false)
+				mainVM.newGame()
 			}
 			Button("Cancel") {}
 		}, message: {
-			Text("Points will be lost.")
+			Text("All points will be lost.")
 		})
 		.sheet(isPresented: $isSheetShown, content: {
 			ResultView(mainVM: mainVM, isSheetShown: $isSheetShown)
@@ -100,22 +100,28 @@ struct ActiveGameView: View {
 			
 			if mainVM.serieCorrectAnswers == 3 {
 				mainVM.points += 5
+				mainVM.currSum += 5
 			} else if mainVM.serieCorrectAnswers == 5 {
 				mainVM.points += 10
+				mainVM.currSum += 10
 				mainVM.serieCorrectAnswers = 0
 			}
 			
 			if mainVM.passedSeconds < 5 {
 				mainVM.points += 3
+				mainVM.currSum += 3
 			} else if mainVM.passedSeconds < mainVM.timeLimit {
 				mainVM.points += 2
+				mainVM.currSum += 2
 			} else {
 				mainVM.points += 1
+				mainVM.currSum += 1
 			}
 		} else {
 			mainVM.serieCorrectAnswers = 0
 			if mainVM.points > 0 {
 				mainVM.points -= 1
+				mainVM.currSum = -1
 			}
 		}
 	}

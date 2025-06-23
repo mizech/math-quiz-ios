@@ -20,6 +20,7 @@ class MainViewModel {
 	var hasGameStarted = false
 	var passedSeconds: Double = 0
 	var serieCorrectAnswers = 0
+	var currSum = 0
 	
 	var operand1: Double = 0
 	var operand2: Double = 0
@@ -33,13 +34,18 @@ class MainViewModel {
 		Color.gray
 	]
 	
-	func newGame(hasGameStarted: Bool) {
+	func newGame() {
 		self.answerIndex = 0
 		self.questionNumber = 0
 		self.points = 0
 		self.disabled = false
 		self.isGameComplete = false
-		self.hasGameStarted = hasGameStarted
+		self.hasGameStarted = false
+	}
+	
+	func startGame(amountQuestions: Int) {
+		self.amountQuestions = amountQuestions
+		self.hasGameStarted = true
 		newQuestion()
 	}
 	
@@ -50,6 +56,7 @@ class MainViewModel {
 		options.removeAll()
 		passedSeconds = 0
 		disabled = false
+		currSum = 0
 		
 		switch ranOperator {
 			case .add:

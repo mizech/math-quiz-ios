@@ -18,11 +18,11 @@ struct InitGameView: View {
 			}
 			Section {
 				Button {
-					mainVM.newGame(hasGameStarted: true)
+					mainVM.startGame(amountQuestions: selectedAmount)
 				} label: {
 					Text("Start Game".uppercased())
 						.padding()
-						.frame(height: 40)
+						.frame(height: 50)
 						.frame(maxWidth: .infinity)
 						.background(.green)
 						.foregroundStyle(.white)
@@ -43,9 +43,6 @@ struct InitGameView: View {
 				}
 			}
 		}.opacity(mainVM.isGameComplete == false ? 1 : 0)
-			.onChange(of: selectedAmount) {
-				mainVM.amountQuestions = selectedAmount
-			}
 			.sheet(isPresented: $isInfoSheetShown) {
 				NavigationStack {
 					VStack(alignment: .leading, spacing: 10) {

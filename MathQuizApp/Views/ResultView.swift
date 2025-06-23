@@ -14,11 +14,11 @@ struct ResultView: View {
 					.font(.title2)
 				Spacer()
 				Button {
-					mainVM.newGame(hasGameStarted: false)
+					mainVM.newGame()
 					isSheetShown = false
 				} label: {
 					Text("Restart")
-						.frame(height: 40)
+						.frame(height: 50)
 						.frame(maxWidth: .infinity)
 						.bold()
 						.background(.blue)
@@ -31,6 +31,7 @@ struct ResultView: View {
 			.toolbar {
 				ToolbarItem(placement: .topBarTrailing) {
 					Button {
+						mainVM.newGame()
 						isSheetShown = false
 					} label: {
 						Image(systemName: "multiply.circle.fill")
