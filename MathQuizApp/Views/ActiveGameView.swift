@@ -36,8 +36,15 @@ struct ActiveGameView: View {
 				Text("^[\(mainVM.points) point](inflect: true)")
 					.font(.title2)
 					.fontWeight(.bold)
+			}.overlay {
+				Text("+5 points")
+					.foregroundStyle(.gray)
+					.font(.headline)
+					.opacity(mainVM.disabled == true ? 1 : 0)
 			}
 			ProgressView(value: (1.0 / mainVM.timeLimit) * mainVM.passedSeconds)
+				.opacity(mainVM.disabled == false ? 1 : 0)
+				
 			Spacer()
 			HStack {
 				Spacer()
