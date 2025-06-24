@@ -17,7 +17,7 @@ struct ResultView: View {
 					mainVM.newGame()
 					isSheetShown = false
 				} label: {
-					Text("Restart")
+					Text("Reset")
 						.frame(height: 50)
 						.frame(maxWidth: .infinity)
 						.bold()
