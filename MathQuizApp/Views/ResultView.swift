@@ -4,7 +4,8 @@ struct ResultView: View {
 	var mainVM: MainViewModel
 	
 	@Binding var isSheetShown: Bool
-	
+	// TODO: Report how many questions out of X are correct.
+	// TODO: Improved app-icon.
     var body: some View {
 		NavigationStack {
 			VStack {
