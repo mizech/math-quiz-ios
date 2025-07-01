@@ -10,10 +10,11 @@ struct ResultView: View {
 			VStack {
 				Text("Game over").font(.largeTitle)
 					.padding(.bottom)
-				Text("You have answered \(mainVM.amountCorrectQuestions) questions of \(mainVM.amountQuestions) correct.")
-					.font(.title2)
+					.fontWeight(.bold)
 				Text("\(mainVM.points) points in total")
 					.font(.title)
+				Text("\(mainVM.amountCorrectQuestions) questions out of \(mainVM.amountQuestions) correct")
+					.font(.title2)
 				Spacer()
 				Button {
 					mainVM.newGame()
