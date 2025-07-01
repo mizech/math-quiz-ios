@@ -97,6 +97,7 @@ struct ActiveGameView: View {
 	func checkAnswer(index: Int) {
 		if index == mainVM.answerIndex {
 			mainVM.serieCorrectAnswers += 1
+			mainVM.amountCorrectQuestions += 1
 			
 			if mainVM.serieCorrectAnswers == 3 {
 				mainVM.points += 5

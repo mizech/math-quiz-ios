@@ -17,6 +17,7 @@ class MainViewModel {
 	var disabled = false
 	var isGameComplete = false
 	var amountQuestions = 10
+	var amountCorrectQuestions = 0
 	var hasGameStarted = false
 	var passedSeconds: Double = 0
 	var serieCorrectAnswers = 0
@@ -45,6 +46,7 @@ class MainViewModel {
 	
 	func startGame(amountQuestions: Int) {
 		self.amountQuestions = amountQuestions
+		self.amountCorrectQuestions = 0
 		self.hasGameStarted = true
 		newQuestion()
 	}

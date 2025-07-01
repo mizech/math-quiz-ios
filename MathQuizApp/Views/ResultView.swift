@@ -4,15 +4,16 @@ struct ResultView: View {
 	var mainVM: MainViewModel
 	
 	@Binding var isSheetShown: Bool
-	// TODO: Report how many questions out of X are correct.
 	// TODO: Improved app-icon.
     var body: some View {
 		NavigationStack {
 			VStack {
 				Text("Game over").font(.largeTitle)
 					.padding(.bottom)
-				Text("You have accomplished \(mainVM.points) points.")
+				Text("You have answered \(mainVM.amountCorrectQuestions) questions of \(mainVM.amountQuestions) correct.")
 					.font(.title2)
+				Text("\(mainVM.points) points in total")
+					.font(.title)
 				Spacer()
 				Button {
 					mainVM.newGame()
