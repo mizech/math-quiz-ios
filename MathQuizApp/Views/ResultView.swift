@@ -4,10 +4,10 @@ struct ResultView: View {
 	var mainVM: MainViewModel
 	
 	@Binding var isSheetShown: Bool
-	// TODO: Improved app-icon.
+
     var body: some View {
 		NavigationStack {
-			VStack {
+			VStack(spacing: 15) {
 				Text("Game over").font(.largeTitle)
 					.padding(.bottom)
 					.fontWeight(.bold)

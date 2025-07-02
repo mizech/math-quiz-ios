@@ -54,7 +54,7 @@ struct ActiveGameView: View {
 						mainVM.disabled = false
 					}
 				} label: {
-					Text("Next Question".uppercased())
+					Text(String(localized: "Next Question").uppercased())
 						.padding()
 						.background(.blue)
 						.fontWeight(.bold)

@@ -54,7 +54,7 @@
         "de-DE" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "^[%lld point](inflect: true)"
+            "value" : "^[%lld Punkt](inflect: true)"
           }
         }
       }
@@ -229,8 +229,15 @@
         }
       }
     },
-    "Okay" : {
-
+    "Next Question" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nächste Fragen"
+          }
+        }
+      }
     },
     "Reset" : {
       "localizations" : {

@@ -20,7 +20,7 @@ struct InitGameView: View {
 				Button {
 					mainVM.startGame(amountQuestions: selectedAmount)
 				} label: {
-					Text(String(localized: "Start Game"))
+					Text(String(localized: "Start Game").uppercased())
 						.padding()
 						.frame(height: 50)
 						.frame(maxWidth: .infinity)
@@ -86,7 +86,7 @@ struct InitGameView: View {
 						Button {
 							isInfoSheetShown.toggle()
 						} label: {
-							Text("Okay")
+							Text("Okay".uppercased())
 								.frame(height: 50)
 								.frame(maxWidth: .infinity)
 								.background(.blue)
