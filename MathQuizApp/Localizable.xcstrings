@@ -1,0 +1,307 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "?" : {
+
+    },
+    "%lld" : {
+
+    },
+    "%lld of %lld" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld von %2$lld"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld of %2$lld"
+          }
+        }
+      }
+    },
+    "%lld points in total" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Punkte insgesamt"
+          }
+        }
+      }
+    },
+    "%lld questions out of %lld correct" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld Fragen von %2$lld korrekt"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld questions out of %2$lld correct"
+          }
+        }
+      }
+    },
+    "^[%lld point](inflect: true)" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "^[%lld point](inflect: true)"
+          }
+        }
+      }
+    },
+    "> 8 seconds" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "> 8 Sekunden"
+          }
+        }
+      }
+    },
+    "1 points" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Punkt"
+          }
+        }
+      }
+    },
+    "2 points" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 Punkte"
+          }
+        }
+      }
+    },
+    "3 points" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 Punkte"
+          }
+        }
+      }
+    },
+    "5 points" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5 Punkte"
+          }
+        }
+      }
+    },
+    "5 seconds" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5 Sekunden"
+          }
+        }
+      }
+    },
+    "8 seconds" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "8 Sekunden"
+          }
+        }
+      }
+    },
+    "10 points" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 Punkte"
+          }
+        }
+      }
+    },
+    "All points will be lost." : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Punkte gehen verloren."
+          }
+        }
+      }
+    },
+    "Amount Questions" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anzahl Fragen"
+          }
+        }
+      }
+    },
+    "Are you sure?" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bist Du sicher?"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
+          }
+        }
+      }
+    },
+    "Correct answer within:" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Korrekte Antwort innerhalb von:"
+          }
+        }
+      }
+    },
+    "Game over" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiel beendet"
+          }
+        }
+      }
+    },
+    "How to get or lose Points" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Punkte gewinnen oder verlieren"
+          }
+        }
+      }
+    },
+    "Instructions" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anleitung"
+          }
+        }
+      }
+    },
+    "Minus 1 point" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minus 1 Punkt"
+          }
+        }
+      }
+    },
+    "Okay" : {
+
+    },
+    "Reset" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurücksetzen"
+          }
+        }
+      }
+    },
+    "Restart" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neustart"
+          }
+        }
+      }
+    },
+    "Serie of 3 correct answers" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 korrekte Antworten in Reihe"
+          }
+        }
+      }
+    },
+    "Serie of 5 correct answers" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5 korrekte Antworten in Reihe"
+          }
+        }
+      }
+    },
+    "Start Game" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiel starten"
+          }
+        }
+      }
+    },
+    "What's the result of" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was ist das Ergebnis von"
+          }
+        }
+      }
+    },
+    "Wrong answer" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falsche Antwort"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

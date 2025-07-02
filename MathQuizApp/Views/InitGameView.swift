@@ -20,7 +20,7 @@ struct InitGameView: View {
 				Button {
 					mainVM.startGame(amountQuestions: selectedAmount)
 				} label: {
-					Text("Start Game".uppercased())
+					Text(String(localized: "Start Game"))
 						.padding()
 						.frame(height: 50)
 						.frame(maxWidth: .infinity)
@@ -47,10 +47,10 @@ struct InitGameView: View {
 				NavigationStack {
 					VStack(alignment: .leading, spacing: 10) {
 						Text("How to get or lose Points")
-							.font(.title)
+							.font(.title2)
 							.bold()
 						Text("Correct answer within:")
-							.font(.title2)
+							.font(.title3)
 						HStack {
 							Text("5 seconds")
 							Spacer()
@@ -62,7 +62,7 @@ struct InitGameView: View {
 							Text("2 points")
 						}
 						HStack {
-							Text("Afterwards")
+							Text("> 8 seconds")
 							Spacer()
 							Text("1 points")
 						}
@@ -80,13 +80,13 @@ struct InitGameView: View {
 						HStack {
 							Text("Serie of 5 correct answers")
 							Spacer()
-							Text("5 points")
+							Text("10 points")
 						}
 						.padding(.bottom, 25)
 						Button {
 							isInfoSheetShown.toggle()
 						} label: {
-							Text("Got it! Let's go.")
+							Text("Okay")
 								.frame(height: 50)
 								.frame(maxWidth: .infinity)
 								.background(.blue)
