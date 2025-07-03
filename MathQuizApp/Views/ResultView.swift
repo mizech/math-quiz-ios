@@ -4,6 +4,7 @@ struct ResultView: View {
 	var mainVM: MainViewModel
 	
 	@Binding var isSheetShown: Bool
+	@State var smiley = "🫤"
 
     var body: some View {
 		NavigationStack {
@@ -15,6 +16,7 @@ struct ResultView: View {
 					.font(.title)
 				Text("\(mainVM.amountCorrectQuestions) questions out of \(mainVM.amountQuestions) correct")
 					.font(.title2)
+				Text(smiley).font(.system(size: 64))
 				Spacer()
 				Button {
 					mainVM.newGame()
@@ -41,13 +43,19 @@ struct ResultView: View {
 					}
 				}
 			}
+		}.onAppear() {
+			let percentageCorrect = Double((mainVM.amountCorrectQuestions * 100)
+									   / mainVM.amountQuestions)
+			switch percentageCorrect {
+				case 0...30:
+					smiley = "🫤"
+				case 31...60:
+					smiley = "😑"
+				case 61...80:
+					smiley = "🙂"
+				default:
+					smiley = "😃"
+			}
 		}
     }
-}
-
-#Preview {
-	ResultView(
-		mainVM: MainViewModel(),
-		isSheetShown: .constant(true)
-	)
 }
