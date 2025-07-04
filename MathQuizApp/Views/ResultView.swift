@@ -9,7 +9,7 @@ struct ResultView: View {
     var body: some View {
 		NavigationStack {
 			VStack(spacing: 15) {
-				Text("Game over").font(.largeTitle)
+				Text("Game over" + " ‼").font(.largeTitle)
 					.padding(.bottom)
 					.fontWeight(.bold)
 				Text("\(mainVM.points) points in total")
@@ -22,7 +22,7 @@ struct ResultView: View {
 					mainVM.newGame()
 					isSheetShown = false
 				} label: {
-					Text(String(localized: "Reset").uppercased())
+					Text(String(localized: "Reset").uppercased() + " ⤴")
 						.frame(height: 50)
 						.frame(maxWidth: .infinity)
 						.bold()

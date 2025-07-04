@@ -110,6 +110,7 @@
       }
     },
     "5 seconds" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de-DE" : {
           "stringUnit" : {
@@ -190,6 +191,7 @@
       }
     },
     "Game over" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de-DE" : {
           "stringUnit" : {
@@ -260,6 +262,7 @@
       }
     },
     "Serie of 3 correct answers" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de-DE" : {
           "stringUnit" : {
@@ -270,6 +273,7 @@
       }
     },
     "Serie of 5 correct answers" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de-DE" : {
           "stringUnit" : {

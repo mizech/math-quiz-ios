@@ -20,7 +20,7 @@ struct InitGameView: View {
 				Button {
 					mainVM.startGame(amountQuestions: selectedAmount)
 				} label: {
-					Text(String(localized: "Start Game").uppercased())
+					Text(String(localized: "Start Game").uppercased() + " 🚀")
 						.padding()
 						.frame(height: 50)
 						.frame(maxWidth: .infinity)
@@ -52,7 +52,7 @@ struct InitGameView: View {
 						Text("Correct answer within:")
 							.font(.title3)
 						HStack {
-							Text("5 seconds")
+							Text("5 seconds" + " 🥉")
 							Spacer()
 							Text("3 points")
 						}
@@ -73,12 +73,12 @@ struct InitGameView: View {
 						}.bold()
 							.foregroundStyle(.red)
 						HStack {
-							Text("Serie of 3 correct answers")
+							Text("Serie of 3 correct answers" + " 🥈")
 							Spacer()
 							Text("5 points")
 						}
 						HStack {
-							Text("Serie of 5 correct answers")
+							Text("Serie of 5 correct answers" + " 🥇")
 							Spacer()
 							Text("10 points")
 						}
@@ -86,7 +86,7 @@ struct InitGameView: View {
 						Button {
 							isInfoSheetShown.toggle()
 						} label: {
-							Text("Okay".uppercased())
+							Text("Okay".uppercased() + " 👍")
 								.frame(height: 50)
 								.frame(maxWidth: .infinity)
 								.background(.blue)
