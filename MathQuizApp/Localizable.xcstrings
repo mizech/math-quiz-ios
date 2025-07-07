@@ -201,6 +201,9 @@
         }
       }
     },
+    "Difficulty" : {
+
+    },
     "Game over" : {
       "extractionState" : "stale",
       "localizations" : {

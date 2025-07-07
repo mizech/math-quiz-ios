@@ -22,6 +22,7 @@ class MainViewModel {
 	var passedSeconds: Double = 0
 	var serieCorrectAnswers = 0
 	var currSum = 0
+	var selectedDifficulty = Difficulty.medium
 	
 	var operand1: Double = 0
 	var operand2: Double = 0
@@ -42,6 +43,7 @@ class MainViewModel {
 		self.disabled = false
 		self.isGameComplete = false
 		self.hasGameStarted = false
+		selectedDifficulty = Difficulty.medium
 	}
 	
 	func startGame(amountQuestions: Int) {
