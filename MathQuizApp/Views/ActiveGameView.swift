@@ -50,9 +50,6 @@ struct ActiveGameView: View {
 				Spacer()
 				Button {
 					mainVM.newQuestion()
-					withAnimation {
-						mainVM.disabled = false
-					}
 				} label: {
 					Text(String(localized: "Next Question").uppercased() + " →")
 						.padding()

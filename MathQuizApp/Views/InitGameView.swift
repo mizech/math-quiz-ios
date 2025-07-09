@@ -2,6 +2,7 @@ import SwiftUI
 
 struct InitGameView: View {
 	@State var selectedAmount = 10
+	@State var selectedDifficulty = Difficulty.medium
 	@State var isInfoSheetShown = false
 	
 	var mainVM: MainViewModel
@@ -15,6 +16,13 @@ struct InitGameView: View {
 						Text("\(i)")
 					}
 				}.pickerStyle(.wheel)
+			}
+			Section("Difficulty") {
+				Picker("Difficulty", selection: $selectedDifficulty) {
+					ForEach(Difficulty.allCases, id: \.self) {
+						Text($0.rawValue).tag($0)
+					}
+				}.pickerStyle(.segmented)
 			}
 			Section {
 				Button {
@@ -43,6 +51,9 @@ struct InitGameView: View {
 				}
 			}
 		}.opacity(mainVM.isGameComplete == false ? 1 : 0)
+			.onChange(of: selectedDifficulty, { 
+				mainVM.selectedDifficulty = selectedDifficulty
+			})
 			.sheet(isPresented: $isInfoSheetShown) {
 				NavigationStack {
 					VStack(alignment: .leading, spacing: 10) {
@@ -52,7 +63,8 @@ struct InitGameView: View {
 						Text("Correct answer within:")
 							.font(.title3)
 						HStack {
-							Text("5 seconds" + " 🥉")
+							Text("5 seconds")
+							Text("🥉")
 							Spacer()
 							Text("3 points")
 						}
@@ -68,17 +80,20 @@ struct InitGameView: View {
 						}
 						HStack {
 							Text("Wrong answer")
+							Text("😖")
 							Spacer()
 							Text("Minus 1 point")
 						}.bold()
 							.foregroundStyle(.red)
 						HStack {
-							Text("Serie of 3 correct answers" + " 🥈")
+							Text("Serie of 3 correct answers")
+							Text("🥈")
 							Spacer()
 							Text("5 points")
 						}
 						HStack {
-							Text("Serie of 5 correct answers" + " 🥇")
+							Text("Serie of 5 correct answers")
+							Text("🥇")
 							Spacer()
 							Text("10 points")
 						}

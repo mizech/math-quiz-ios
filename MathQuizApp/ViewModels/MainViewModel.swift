@@ -22,6 +22,7 @@ class MainViewModel {
 	var passedSeconds: Double = 0
 	var serieCorrectAnswers = 0
 	var currSum = 0
+	var selectedDifficulty = Difficulty.medium
 	
 	var operand1: Double = 0
 	var operand2: Double = 0
@@ -35,6 +36,38 @@ class MainViewModel {
 		Color.gray
 	]
 	
+	var getRange: ClosedRange<Double> {
+		switch ranOperator {
+			case .add, .subtract:
+				switch selectedDifficulty {
+					case .easy:
+						return 1...20
+					case .medium:
+						return 1...10
+					case .hard:
+						return 1...5
+				}
+			case .multiply:
+				switch selectedDifficulty {
+					case .easy:
+						return 300...700
+					case .medium:
+						return 200...500
+					case .hard:
+						return 1...100
+				}
+			case .divide:
+				switch selectedDifficulty {
+					case .easy:
+						return 1...20
+					case .medium:
+						return 1...10
+					case .hard:
+						return 1...15
+				}
+		}
+	}
+	
 	func newGame() {
 		self.answerIndex = 0
 		self.questionNumber = 0
@@ -42,6 +75,7 @@ class MainViewModel {
 		self.disabled = false
 		self.isGameComplete = false
 		self.hasGameStarted = false
+		selectedDifficulty = Difficulty.medium
 	}
 	
 	func startGame(amountQuestions: Int) {
@@ -52,8 +86,9 @@ class MainViewModel {
 	}
 	
 	func newQuestion() {
-		operand1 = Double.random(in: 0...100)
-		operand2 = Double.random(in: 1..<100)
+		operand1 = round(Double.random(in: 0...100) * 100) / 100
+		operand2 = round(Double.random(in: 1..<100) * 100) / 100
+		print("Op1: \(operand1) - Op2: \(operand2)")
 		ranOperator = operators.randomElement() ?? Operators.subtract
 		options.removeAll()
 		passedSeconds = 0
@@ -62,41 +97,17 @@ class MainViewModel {
 		
 		switch ranOperator {
 			case .add:
-				answer = operand1 + operand2
-				setUpQuestion {
-					Double.random(
-						in: operand1 - 5.0...operand1 + 5.0
-					) + Double.random(
-						in: operand1 - 5.0...operand1 + 5.0
-					)
-				}
+				answer = round((operand1 + operand2) * 100) / 100
+				setUpQuestion(operand: Operators.add)
 			case .subtract:
-				answer = operand1 - operand2
-				setUpQuestion {
-					Double.random(
-						in: operand1 - 5.0...operand1 + 5.0
-					) + Double.random(
-						in: operand1 - 5.0...operand1 + 5.0
-					)
-				}
+				answer = round((operand1 - operand2) * 100) / 100
+				setUpQuestion(operand: Operators.subtract)
 			case .multiply:
-				answer = operand1 * operand2
-				setUpQuestion {
-					Double.random(
-						in: operand1 - 1.0...operand1 + 1.0
-					) + Double.random(
-						in: operand1 - 1.0...operand1 + 1.0
-					)
-				}
+				answer = round((operand1 * operand2) * 100) / 100
+				setUpQuestion(operand: Operators.multiply)
 			case .divide:
-				answer = operand1 / operand2
-				setUpQuestion {
-					Double.random(
-						in: operand1 - 1.0...operand1 + 1.0
-					) + Double.random(
-						in: operand1 - 1.0...operand1 + 1.0
-					)
-				}
+				answer = round((operand1 / operand2) * 100) / 100
+				setUpQuestion(operand: Operators.divide)
 		}
 		
 		if questionNumber < amountQuestions {
@@ -124,15 +135,37 @@ class MainViewModel {
 		}
 	}
 	
-	func setUpQuestion(compOption: () -> Double) {
+	func setUpQuestion(operand: Operators) {
 		answerIndex = Int.random(in: 0..<4)
 		
 		for i in 0..<4 {
 			if i == answerIndex {
 				options.append(answer)
 			} else {
-				options.append(compOption())
+				while true {
+					var feasibleOption: Double = 0
+					var isPositive = Double.random(in: 0...1.0) >= 0.5
+					
+					switch operand {
+						case .add, .subtract:
+							feasibleOption = isPositive ? answer + Double.random(in: getRange) : answer - Double.random(in: getRange)
+						case .multiply:
+							feasibleOption = isPositive ? answer + Double.random(in: getRange) : answer - Double.random(in: getRange)
+						case .divide:
+							feasibleOption = isPositive ? answer + Double.random(in: getRange) : abs(answer - Double.random(in: getRange))
+					}
+					
+					feasibleOption = round(feasibleOption * 100) / 100
+					
+					if options.contains(feasibleOption) == true {
+						continue
+					} else {
+						options.append(feasibleOption)
+						break
+					}
+				}
 			}
 		}
+		print(options)
 	}
 }

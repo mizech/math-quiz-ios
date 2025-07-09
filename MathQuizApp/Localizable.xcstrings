@@ -69,6 +69,18 @@
         }
       }
     },
+    "🥇" : {
+
+    },
+    "🥈" : {
+
+    },
+    "🥉" : {
+
+    },
+    "😖" : {
+
+    },
     "1 points" : {
       "localizations" : {
         "de-DE" : {
@@ -110,7 +122,6 @@
       }
     },
     "5 seconds" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de-DE" : {
           "stringUnit" : {
@@ -190,6 +201,9 @@
         }
       }
     },
+    "Difficulty" : {
+
+    },
     "Game over" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -262,7 +276,6 @@
       }
     },
     "Serie of 3 correct answers" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de-DE" : {
           "stringUnit" : {
@@ -273,7 +286,6 @@
       }
     },
     "Serie of 5 correct answers" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de-DE" : {
           "stringUnit" : {
