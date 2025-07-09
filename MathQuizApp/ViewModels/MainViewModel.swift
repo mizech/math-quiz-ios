@@ -54,8 +54,9 @@ class MainViewModel {
 	}
 	
 	func newQuestion() {
-		operand1 = Double.random(in: 0...100)
-		operand2 = Double.random(in: 1..<100)
+		operand1 = round(Double.random(in: 0...100) * 100) / 100
+		operand2 = round(Double.random(in: 1..<100) * 100) / 100
+		print("Op1: \(operand1) - Op2: \(operand2)")
 		ranOperator = operators.randomElement() ?? Operators.subtract
 		options.removeAll()
 		passedSeconds = 0
@@ -64,7 +65,7 @@ class MainViewModel {
 		
 		switch ranOperator {
 			case .add:
-				answer = operand1 + operand2
+				answer = round((operand1 + operand2) * 100) / 100
 				setUpQuestion {
 					Double.random(
 						in: operand1 - 5.0...operand1 + 5.0
@@ -73,30 +74,30 @@ class MainViewModel {
 					)
 				}
 			case .subtract:
-				answer = operand1 - operand2
+				answer = round((operand1 - operand2) * 100) / 100
 				setUpQuestion {
 					Double.random(
 						in: operand1 - 5.0...operand1 + 5.0
-					) + Double.random(
+					) - Double.random(
 						in: operand1 - 5.0...operand1 + 5.0
 					)
 				}
 			case .multiply:
-				answer = operand1 * operand2
+				answer = round((operand1 * operand2) * 100) / 100
 				setUpQuestion {
 					Double.random(
-						in: operand1 - 1.0...operand1 + 1.0
-					) + Double.random(
-						in: operand1 - 1.0...operand1 + 1.0
+						in: operand1 - 3.0...operand1 + 3.0
+					) * Double.random(
+						in: operand1 - 3.0...operand1 + 3.0
 					)
 				}
 			case .divide:
-				answer = operand1 / operand2
+				answer = round((operand1 / operand2) * 100) / 100
 				setUpQuestion {
 					Double.random(
-						in: operand1 - 1.0...operand1 + 1.0
-					) + Double.random(
-						in: operand1 - 1.0...operand1 + 1.0
+						in: operand1...operand1 + 1.0
+					) / Double.random(
+						in: operand1...operand1 + 1.0
 					)
 				}
 		}
@@ -133,8 +134,18 @@ class MainViewModel {
 			if i == answerIndex {
 				options.append(answer)
 			} else {
-				options.append(compOption())
+				while true {
+					let feasibleOption = round(compOption() * 100) / 100
+					
+					if options.contains(feasibleOption) == true {
+						continue
+					} else {
+						options.append(feasibleOption)
+						break
+					}
+				}
 			}
 		}
+		print(options)
 	}
 }
