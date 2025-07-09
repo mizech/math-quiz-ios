@@ -30,9 +30,9 @@
             filePath = "MathQuizApp/ViewModels/MainViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "setUpQuestion(compOption:)"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "setUpQuestion(operand:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

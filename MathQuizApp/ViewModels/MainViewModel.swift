@@ -66,40 +66,16 @@ class MainViewModel {
 		switch ranOperator {
 			case .add:
 				answer = round((operand1 + operand2) * 100) / 100
-				setUpQuestion {
-					Double.random(
-						in: operand1 - 5.0...operand1 + 5.0
-					) + Double.random(
-						in: operand1 - 5.0...operand1 + 5.0
-					)
-				}
+				setUpQuestion(operand: Operators.add)
 			case .subtract:
 				answer = round((operand1 - operand2) * 100) / 100
-				setUpQuestion {
-					Double.random(
-						in: operand1 - 5.0...operand1 + 5.0
-					) - Double.random(
-						in: operand1 - 5.0...operand1 + 5.0
-					)
-				}
+				setUpQuestion(operand: Operators.subtract)
 			case .multiply:
 				answer = round((operand1 * operand2) * 100) / 100
-				setUpQuestion {
-					Double.random(
-						in: operand1 - 3.0...operand1 + 3.0
-					) * Double.random(
-						in: operand1 - 3.0...operand1 + 3.0
-					)
-				}
+				setUpQuestion(operand: Operators.multiply)
 			case .divide:
 				answer = round((operand1 / operand2) * 100) / 100
-				setUpQuestion {
-					Double.random(
-						in: operand1...operand1 + 1.0
-					) / Double.random(
-						in: operand1...operand1 + 1.0
-					)
-				}
+				setUpQuestion(operand: Operators.divide)
 		}
 		
 		if questionNumber < amountQuestions {
@@ -127,7 +103,7 @@ class MainViewModel {
 		}
 	}
 	
-	func setUpQuestion(compOption: () -> Double) {
+	func setUpQuestion(operand: Operators) {
 		answerIndex = Int.random(in: 0..<4)
 		
 		for i in 0..<4 {
@@ -135,7 +111,19 @@ class MainViewModel {
 				options.append(answer)
 			} else {
 				while true {
-					let feasibleOption = round(compOption() * 100) / 100
+					var feasibleOption: Double = 0
+					var isPositive = Double.random(in: 0...1.0) >= 0.5
+					
+					switch operand {
+						case .add, .subtract:
+							feasibleOption = isPositive ? answer + Double.random(in: 1...10) : answer - Double.random(in: 1...10)
+						case .multiply:
+							feasibleOption = isPositive ? answer + Double.random(in: 200...500) : answer - Double.random(in: 200...500)
+						case .divide:
+							feasibleOption = isPositive ? answer + Double.random(in: 1...10) : abs(answer - Double.random(in: 1...10))
+					}
+					
+					feasibleOption = round(feasibleOption * 100) / 100
 					
 					if options.contains(feasibleOption) == true {
 						continue
