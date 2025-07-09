@@ -22,7 +22,7 @@ class MainViewModel {
 	var passedSeconds: Double = 0
 	var serieCorrectAnswers = 0
 	var currSum = 0
-	var selectedDifficulty = Difficulty.medium
+	var selectedDifficulty = Difficulty.easy
 	
 	var operand1: Double = 0
 	var operand2: Double = 0
@@ -41,7 +41,7 @@ class MainViewModel {
 			case .add, .subtract:
 				switch selectedDifficulty {
 					case .easy:
-						return 1...20
+						return 1...30
 					case .medium:
 						return 1...10
 					case .hard:
@@ -50,7 +50,7 @@ class MainViewModel {
 			case .multiply:
 				switch selectedDifficulty {
 					case .easy:
-						return 300...700
+						return 100...900
 					case .medium:
 						return 200...500
 					case .hard:
@@ -59,7 +59,8 @@ class MainViewModel {
 			case .divide:
 				switch selectedDifficulty {
 					case .easy:
-						return 1...20
+						return 1...25
+						
 					case .medium:
 						return 1...10
 					case .hard:
@@ -88,7 +89,6 @@ class MainViewModel {
 	func newQuestion() {
 		operand1 = round(Double.random(in: 0...100) * 100) / 100
 		operand2 = round(Double.random(in: 1..<100) * 100) / 100
-		print("Op1: \(operand1) - Op2: \(operand2)")
 		ranOperator = operators.randomElement() ?? Operators.subtract
 		options.removeAll()
 		passedSeconds = 0
@@ -166,6 +166,5 @@ class MainViewModel {
 				}
 			}
 		}
-		print(options)
 	}
 }

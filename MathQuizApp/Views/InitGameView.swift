@@ -2,7 +2,7 @@ import SwiftUI
 
 struct InitGameView: View {
 	@State var selectedAmount = 10
-	@State var selectedDifficulty = Difficulty.medium
+	@State var selectedDifficulty = Difficulty.easy
 	@State var isInfoSheetShown = false
 	
 	var mainVM: MainViewModel

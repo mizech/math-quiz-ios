@@ -202,7 +202,14 @@
       }
     },
     "Difficulty" : {
-
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schwierigkeit"
+          }
+        }
+      }
     },
     "Game over" : {
       "extractionState" : "stale",
