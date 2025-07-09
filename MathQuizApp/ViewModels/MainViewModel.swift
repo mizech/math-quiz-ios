@@ -36,6 +36,38 @@ class MainViewModel {
 		Color.gray
 	]
 	
+	var getRange: ClosedRange<Double> {
+		switch ranOperator {
+			case .add, .subtract:
+				switch selectedDifficulty {
+					case .easy:
+						return 1...20
+					case .medium:
+						return 1...10
+					case .hard:
+						return 1...5
+				}
+			case .multiply:
+				switch selectedDifficulty {
+					case .easy:
+						return 300...700
+					case .medium:
+						return 200...500
+					case .hard:
+						return 1...100
+				}
+			case .divide:
+				switch selectedDifficulty {
+					case .easy:
+						return 1...20
+					case .medium:
+						return 1...10
+					case .hard:
+						return 1...15
+				}
+		}
+	}
+	
 	func newGame() {
 		self.answerIndex = 0
 		self.questionNumber = 0
@@ -116,11 +148,11 @@ class MainViewModel {
 					
 					switch operand {
 						case .add, .subtract:
-							feasibleOption = isPositive ? answer + Double.random(in: 1...10) : answer - Double.random(in: 1...10)
+							feasibleOption = isPositive ? answer + Double.random(in: getRange) : answer - Double.random(in: getRange)
 						case .multiply:
-							feasibleOption = isPositive ? answer + Double.random(in: 200...500) : answer - Double.random(in: 200...500)
+							feasibleOption = isPositive ? answer + Double.random(in: getRange) : answer - Double.random(in: getRange)
 						case .divide:
-							feasibleOption = isPositive ? answer + Double.random(in: 1...10) : abs(answer - Double.random(in: 1...10))
+							feasibleOption = isPositive ? answer + Double.random(in: getRange) : abs(answer - Double.random(in: getRange))
 					}
 					
 					feasibleOption = round(feasibleOption * 100) / 100
