@@ -42,28 +42,20 @@ class MainViewModel {
 				switch selectedDifficulty {
 					case .easy:
 						return 2...15
-					case .medium:
-						return 1...10
 					case .hard:
-						return 1...5
+						return 1...10
 				}
 			case .multiply:
 				switch selectedDifficulty {
-					case .easy:
-						return 10...100
-					case .medium:
-						return 10...50
-					case .hard:
-						return 5...50
+					case .easy, .hard:
+						return 10...25
 				}
 			case .divide:
 				switch selectedDifficulty {
 					case .easy:
-						return 2...15
-					case .medium:
-						return 1...10
+						return 1...15
 					case .hard:
-						return 1...5
+						return 1...10
 				}
 		}
 	}
@@ -75,7 +67,7 @@ class MainViewModel {
 		self.disabled = false
 		self.isGameComplete = false
 		self.hasGameStarted = false
-		selectedDifficulty = Difficulty.medium
+		selectedDifficulty = Difficulty.easy
 	}
 	
 	func startGame(amountQuestions: Int) {
