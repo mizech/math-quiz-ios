@@ -41,7 +41,7 @@ class MainViewModel {
 			case .add, .subtract:
 				switch selectedDifficulty {
 					case .easy:
-						return 1...30
+						return 2...15
 					case .medium:
 						return 1...10
 					case .hard:
@@ -50,21 +50,20 @@ class MainViewModel {
 			case .multiply:
 				switch selectedDifficulty {
 					case .easy:
-						return 100...900
+						return 10...100
 					case .medium:
-						return 200...500
+						return 10...50
 					case .hard:
-						return 1...100
+						return 5...50
 				}
 			case .divide:
 				switch selectedDifficulty {
 					case .easy:
-						return 1...25
-						
+						return 2...15
 					case .medium:
 						return 1...10
 					case .hard:
-						return 1...15
+						return 1...5
 				}
 		}
 	}
@@ -87,8 +86,10 @@ class MainViewModel {
 	}
 	
 	func newQuestion() {
-		operand1 = round(Double.random(in: 0...100) * 100) / 100
-		operand2 = round(Double.random(in: 1..<100) * 100) / 100
+		let upperLimit = selectedDifficulty == .easy ? 10.0 : 100.0
+		operand1 = round(Double.random(in: 0...upperLimit) * upperLimit) / upperLimit
+		operand2 = round(Double.random(in: 1..<upperLimit) * upperLimit) / upperLimit
+		
 		ranOperator = operators.randomElement() ?? Operators.subtract
 		options.removeAll()
 		passedSeconds = 0
