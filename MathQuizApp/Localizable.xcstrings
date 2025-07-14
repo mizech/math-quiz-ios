@@ -223,7 +223,6 @@
       }
     },
     "Game over" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de-DE" : {
           "stringUnit" : {
@@ -299,6 +298,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Neustart"
+          }
+        }
+      }
+    },
+    "Selected Difficulty: " : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gewählte Schwierigkeit: "
           }
         }
       }

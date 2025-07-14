@@ -22,9 +22,11 @@ struct InitGameView: View {
 					ForEach(Difficulty.allCases, id: \.self) { option in
 						switch option {
 							case .easy:
-								Text(String(localized: "Easy") + " 😀").tag(option)
+								Text(String(localized: "Easy") + " 😀")
+									.tag(option)
 							case .hard:
-								Text(String(localized: "Hard") + " 😬").tag(option)
+								Text(String(localized: "Hard") + " 😬")
+									.tag(option)
 						}
 					}
 				}.pickerStyle(.segmented)

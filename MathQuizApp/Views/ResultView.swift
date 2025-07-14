@@ -9,14 +9,25 @@ struct ResultView: View {
     var body: some View {
 		NavigationStack {
 			VStack(spacing: 15) {
-				Text("Game over" + " ‼").font(.largeTitle)
+				Text(String(localized: "Game over") + " ‼").font(.largeTitle)
 					.padding(.bottom)
 					.fontWeight(.bold)
-				Text("\(mainVM.points) points in total")
-					.font(.title)
+				HStack {
+					Text("Selected Difficulty: ")
+						.fontWeight(.bold)
+					switch mainVM.selectedDifficulty {
+						case .easy:
+							Text("Easy")
+						case .hard:
+							Text("Hard")
+					}
+				}.font(.title2)
 				Text("\(mainVM.amountCorrectQuestions) questions out of \(mainVM.amountQuestions) correct")
 					.font(.title2)
 				Text(smiley).font(.system(size: 64))
+				Text("\(mainVM.points) points in total")
+					.font(.title)
+					.fontWeight(.bold)
 				Spacer()
 				Button {
 					mainVM.newGame()
@@ -58,4 +69,11 @@ struct ResultView: View {
 			}
 		}
     }
+}
+
+#Preview {
+	ResultView(
+		mainVM: MainViewModel(),
+		isSheetShown: .constant(true)
+	)
 }
