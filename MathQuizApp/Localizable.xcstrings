@@ -211,6 +211,17 @@
         }
       }
     },
+    "Easy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leicht"
+          }
+        }
+      }
+    },
     "Game over" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -218,6 +229,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Spiel beendet"
+          }
+        }
+      }
+    },
+    "Hard" : {
+      "localizations" : {
+        "de-DE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schwer"
           }
         }
       }

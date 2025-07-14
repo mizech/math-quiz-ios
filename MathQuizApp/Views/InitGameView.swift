@@ -19,8 +19,13 @@ struct InitGameView: View {
 			}
 			Section("Difficulty") {
 				Picker("Difficulty", selection: $selectedDifficulty) {
-					ForEach(Difficulty.allCases, id: \.self) {
-						Text($0.rawValue).tag($0)
+					ForEach(Difficulty.allCases, id: \.self) { option in
+						switch option {
+							case .easy:
+								Text(String(localized: "Easy") + " 😀").tag(option)
+							case .hard:
+								Text(String(localized: "Hard") + " 😬").tag(option)
+						}
 					}
 				}.pickerStyle(.segmented)
 			}
