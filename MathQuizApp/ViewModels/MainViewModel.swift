@@ -141,11 +141,17 @@ class MainViewModel {
 					
 					switch operand {
 						case .add, .subtract:
-							feasibleOption = isPositive ? answer + Double.random(in: getRange) : answer - Double.random(in: getRange)
+							feasibleOption = isPositive
+								? answer + Double.random(in: getRange)
+								: answer - Double.random(in: getRange)
 						case .multiply:
-							feasibleOption = isPositive ? answer + Double.random(in: getRange) : answer - Double.random(in: getRange)
+							feasibleOption = isPositive
+								? answer + Double.random(in: getRange)
+								: answer - Double.random(in: getRange)
 						case .divide:
-							feasibleOption = isPositive ? answer + Double.random(in: getRange) : abs(answer - Double.random(in: getRange))
+							feasibleOption = isPositive
+								? answer + Double.random(in: getRange)
+								: abs(answer - Double.random(in: getRange))
 					}
 					
 					feasibleOption = round(feasibleOption * 100) / 100
